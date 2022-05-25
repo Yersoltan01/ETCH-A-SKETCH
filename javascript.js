@@ -1,30 +1,29 @@
-const gridBtn = document.querySelector('#grid-scale-button');
-const gridScale = document.querySelector('#grid-scale');
-const container = document.querySelector('.container');
+let gridBtn = document.querySelector('#grid-scale-button');
+let gridSize = document.querySelector('#grid-scale');
+let container = document.querySelector('.container');
 
-function setGrid() {
-    let divYAxis = document.createElement('div');
-    let divXAxis = document.createElement('div');
-    
-    clear(container);
-
-    function clear(container) 
-    { 
-        while (container.firstChild) { 
-            container.removeChild(container.firstChild); 
+function buildGrid() {
+    if(gridSize.value >= 1 && gridSize.value <= 100) {
+        clearGrid(container);
+        let cell = document.createElement('div');
+        let cellSize = container.clientWidth / gridSize.value;
+        cell.classList.add('cell');
+        cell.style.width = cellSize + "px";
+        cell.style.height = cellSize + "px";
+        for(i = 0; i < gridSize.value * gridSize.value; i++) {
+            container.append(cell.cloneNode(true));
         }
     }
-
-    divYAxis.classList.add('y-axis');
-    divXAxis.classList.add('x-axis');
-
-    for(i = 0; i < gridScale.value; i++) {
-        divYAxis.append(divXAxis.cloneNode(true));
-    }
-
-    for(i = 0; i < gridScale.value; i++) {
-        container.append(divYAxis.cloneNode(true));
+    else {
+        alert('Please, enter valid data');
     }
 }
 
-gridBtn.addEventListener('click', setGrid);
+function clearGrid(container) 
+{ 
+    while (container.firstChild) { 
+        container.removeChild(container.firstChild); 
+    }
+}
+
+gridBtn.addEventListener('click', buildGrid);
