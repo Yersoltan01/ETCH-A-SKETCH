@@ -8,23 +8,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Etch-A-Sketch</h1>
     <div class="grid">
         <div class="grid-settings">
             <div class="set-scale">
-                <label for="grid-scale">Grid scale(between 1 and 100):</label>
+                <label for="grid-scale">Grid scale:</label>
                 <input type="number" id="grid-scale" min="1" max="100" autofocus>
                 <button id="grid-scale-button" type="button">Save</button>
             </div>
-            <div class="set-paintbrush">
-                <div class="mode-color">
-                    
-                </div>
-                <div class="mode-rgb">
-
-                </div>
-                <div class="mode-eraser">
-
-                </div>
+            <div class="mode-color">
+                <button id="color-button">Color mode</button>
+            </div>
+            <div class="mode-rgb">
+                <button id="rgb-button">RGB mode</button>
+            </div>
+            <div class="mode-eraser">
+                <button id="eraser-button">Eraser mode</button>
+            </div>
+            <div class="clear">
+                <button id="clear-button">Clear</button>
             </div>
         </div>
         <div class="grid-container">
