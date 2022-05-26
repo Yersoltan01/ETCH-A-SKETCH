@@ -33,6 +33,10 @@ h1 {
     gap: 20px;
 }
 
+.grid-size {
+    text-align: center;
+}
+
 .cell {
     border: 0.5px solid dimgray;
 }
@@ -47,51 +51,62 @@ h1 {
 }
 
 button {
-  background-color: #ffffff;
-  border: 1px solid transparent;
-  border-radius: .75rem;
-  box-sizing: border-box;
-  color: #000000;
-  cursor: pointer;
-  flex: 0 0 auto;
-  font-size: 1.125rem;
-  font-weight: 600;
-  line-height: 1.5rem;
-  padding: .75rem 1.2rem;
-  text-align: center;
-  text-decoration: none #6B7280 solid;
-  text-decoration-thickness: auto;
-  transition-property: background-color,border-color,color,fill,stroke;
-  transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: auto;
-}
-
-.button-40:hover {
-  background-color: #374151;
-}
-
-.button-40:focus {
-  box-shadow: none;
-  outline: 2px solid transparent;
-  outline-offset: 2px;
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: .75rem 1.2rem;
+    text-align: center;
+    text-decoration: none #6B7280 solid;
+    text-decoration-thickness: auto;
+    transition-property: background-color,border-color,color,fill,stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
 }
 
 @media (min-width: 768px) {
-  .button-40 {
+    .button-40 {
     padding: .75rem 1.5rem;
-  }
+    }
+}
+
+.rainbowh1 {
+    user-select: none;
+    font-size: 48px;
+    color: white;
+    background: repeating-linear-gradient(124deg, red 0%, yellow 7.14%, rgb(0,255,0) 14.28%,
+                rgb(0,255,255) 21.4%, cyan 28.56%, blue 35.7%, magenta 42.84%, red 50%);
+    background-size: 400% 400%;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: slide 10s linear infinite forwards;
+}
+@keyframes slide {
+    0% {
+    background-position-x: 0%;
+    }
+    100% {
+    background-position-x: 600vw;
+    }
 }
 
 .rainbowRGB {
-    background: repeating-linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-    background-size: 500% 500%;
-    -webkit-animation: rainbow 18s ease infinite;
-    -z-animation: rainbow 18s ease infinite;
-    -o-animation: rainbow 18s ease infinite;
-    animation: rainbow 18s ease infinite;
+    background: repeating-linear-gradient(124deg, red 0%, yellow 7.14%, rgb(0,255,0) 14.28%,
+    rgb(0,255,255) 21.4%, cyan 28.56%, blue 35.7%, magenta 42.84%, red 50%);
+    background-size: 400% 400%;
+    -webkit-animation: rainbow 10s ease infinite;
+    -z-animation: rainbow 10s ease infinite;
+    -o-animation: rainbow 10s ease infinite;
+    animation: rainbow 10s ease infinite;
 }
 
 .colorWhite {

@@ -1,5 +1,6 @@
 let container = document.querySelector('.grid-container');
 let gridSlider = document.querySelector('#grid-scale');
+let gridSizeLabel = document.querySelector('.grid-size-label');
 let colorBtn = document.querySelector('#color-button');
 let rgbBtn = document.querySelector('#rgb-button');
 let eraserBtn = document.querySelector('#eraser-button');
@@ -11,19 +12,14 @@ let paintbrushMode = 'color';
 buildGrid();
 
 function buildGrid() {
-    if(gridSize >= 1 && gridSize <= 100) {
-        clearGrid(container);
-        let cell = document.createElement('div');
-        let cellSize = container.clientWidth / gridSize;
-        cell.classList.add('cell');
-        cell.style.width = cellSize + "px";
-        cell.style.height = cellSize + "px";
-        for(i = 0; i < gridSize * gridSize; i++) {
-            container.append(cell.cloneNode(true));
-        }
-    }
-    else {
-        alert('Please, enter valid data');
+    clearGrid(container);
+    let cell = document.createElement('div');
+    let cellSize = container.clientWidth / gridSize;
+    cell.classList.add('cell');
+    cell.style.width = cellSize + "px";
+    cell.style.height = cellSize + "px";
+    for(i = 0; i < gridSize * gridSize; i++) {
+        container.append(cell.cloneNode(true));
     }
 }
 
@@ -56,6 +52,7 @@ colorBtn.addEventListener('click', () => {
     colorBtn.classList.add('colorWhite');
     rgbBtn.classList.remove('rainbowRGB');
     eraserBtn.classList.remove('eraser');
+    h1.classList.remove('rainbowh1');
 
 });
 rgbBtn.addEventListener('click', () => {
@@ -63,22 +60,25 @@ rgbBtn.addEventListener('click', () => {
     rgbBtn.classList.add('rainbowRGB');
     colorBtn.classList.remove('colorWhite');
     eraserBtn.classList.remove('eraser');
+    h1.classList.add('rainbowh1');
 });
 eraserBtn.addEventListener('click', () => {
     paintbrushMode = 'eraser';
     eraserBtn.classList.add('eraser');
+    h1.classList.remove('rainbowh1');
     rgbBtn.classList.remove('rainbowRGB');
     colorBtn.classList.remove('colorWhite');
 });
 clearBtn.addEventListener('click', () => {
     clearGrid(container);
+    colorBtn.classList.add('colorWhite');
+    h1.classList.remove('rainbowh1');
     rgbBtn.classList.remove('rainbowRGB');
-    colorBtn.classList.remove('colorWhite');
     eraserBtn.classList.remove('eraser');
 });
 
 gridSlider.addEventListener('input', (e) => {
     gridSize = e.target.value;
+    gridSizeLabel.textContent = `${gridSize} x ${gridSize}`;
     buildGrid();
 });
-// gridSize.onchange = (e) => changeSize(e.target.value)
