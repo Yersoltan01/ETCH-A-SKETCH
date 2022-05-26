@@ -4,17 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="" id="grid">
-        <label for="grid-scale">Grid scale(between 1 and 100):</label>
-        <input type="number" id="grid-scale" min="1" max="100" autofocus>
-        <button id="grid-scale-button" type="button">Save</button>
-    </form>
-    <div class="container">
+    <div class="grid">
+        <div class="grid-settings">
+            <div class="set-scale">
+                <label for="grid-scale">Grid scale(between 1 and 100):</label>
+                <input type="number" id="grid-scale" min="1" max="100" autofocus>
+                <button id="grid-scale-button" type="button">Save</button>
+            </div>
+            <div class="set-paintbrush">
+                <div class="mode-color">
+                    
+                </div>
+                <div class="mode-rgb">
 
+                </div>
+                <div class="mode-eraser">
+
+                </div>
+            </div>
+        </div>
+        <div class="grid-container">
+
+        </div>
     </div>
     <script src="javascript.js"></script>
 </body>

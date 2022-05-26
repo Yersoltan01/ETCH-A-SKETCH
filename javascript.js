@@ -1,6 +1,7 @@
 let gridBtn = document.querySelector('#grid-scale-button');
 let gridSize = document.querySelector('#grid-scale');
-let container = document.querySelector('.container');
+let container = document.querySelector('.grid-container');
+let paintbrushMode = 'color';
 
 function buildGrid() {
     if(gridSize.value >= 1 && gridSize.value <= 100) {
@@ -29,7 +30,7 @@ function clearGrid(container)
 container.addEventListener('mouseover', function(e) {
     let target = e.target.closest('.cell');
     if (!target) return;
-    target.style.backgroundColor = 'black';
+    target.style.backgroundColor = 'pink';
 });
 
 gridBtn.addEventListener('click', buildGrid);

@@ -10,26 +10,23 @@ html {
     }
 
 body {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.grid {
+    margin-top: 20px;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    height: 90vh;
 }
 
-#grid {
-    margin: 20px 0;
-}
-
-.container {
+.grid-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    border: 10px solid red;
-    width: 700px;
-    height: 700px;
-}
-
-.cell {
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
+    border: 1px solid grey;
+    width: 600px;
+    height: 600px;
 }
