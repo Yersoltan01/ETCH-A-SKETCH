@@ -9,8 +9,10 @@ let h1 = document.querySelector('h1');
 let gridSize = 16;
 let paintbrushMode = 'color';
 
+//build initial 16x16 Grid 
 buildGrid();
 
+// Build the Grid
 function buildGrid() {
     clearGrid(container);
     let cell = document.createElement('div');
@@ -23,6 +25,7 @@ function buildGrid() {
     }
 }
 
+// Clear the Grid
 function clearGrid(container) 
 { 
     while (container.firstChild) { 
@@ -30,9 +33,12 @@ function clearGrid(container)
     }
 }
 
+//Event to know when a mouse is moving through cells in a grid.
 container.addEventListener('mouseover', function(e) {
     let target = e.target.closest('.cell');
+    // Filters mouseover event which is not related to cells
     if (!target) return;
+    //Change cell's color basing on the installed mode
     if(paintbrushMode == 'color') {
         target.style.backgroundColor = 'white';
     }
@@ -46,7 +52,7 @@ container.addEventListener('mouseover', function(e) {
         target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
     }
 });
-
+// Listen for different paintbrush modes activation
 colorBtn.addEventListener('click', () => {
     paintbrushMode = 'color';
     colorBtn.classList.add('colorWhite');
