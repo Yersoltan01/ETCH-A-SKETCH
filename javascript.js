@@ -1,22 +1,24 @@
 let container = document.querySelector('.grid-container');
-let gridSize = document.querySelector('#grid-scale');
-let gridBtn = document.querySelector('#grid-scale-button');
+let gridSlider = document.querySelector('#grid-scale');
 let colorBtn = document.querySelector('#color-button');
 let rgbBtn = document.querySelector('#rgb-button');
 let eraserBtn = document.querySelector('#eraser-button');
 let clearBtn = document.querySelector('#clear-button')
 let h1 = document.querySelector('h1');
+let gridSize = 16;
 let paintbrushMode = 'color';
 
+buildGrid();
+
 function buildGrid() {
-    if(gridSize.value >= 1 && gridSize.value <= 100) {
+    if(gridSize >= 1 && gridSize <= 100) {
         clearGrid(container);
         let cell = document.createElement('div');
-        let cellSize = container.clientWidth / gridSize.value;
+        let cellSize = container.clientWidth / gridSize;
         cell.classList.add('cell');
         cell.style.width = cellSize + "px";
         cell.style.height = cellSize + "px";
-        for(i = 0; i < gridSize.value * gridSize.value; i++) {
+        for(i = 0; i < gridSize * gridSize; i++) {
             container.append(cell.cloneNode(true));
         }
     }
@@ -49,20 +51,34 @@ container.addEventListener('mouseover', function(e) {
     }
 });
 
-
 colorBtn.addEventListener('click', () => {
     paintbrushMode = 'color';
+    colorBtn.classList.add('colorWhite');
+    rgbBtn.classList.remove('rainbowRGB');
+    eraserBtn.classList.remove('eraser');
+
 });
 rgbBtn.addEventListener('click', () => {
     paintbrushMode = 'rgb';
-});
-rgbBtn.addEventListener('click', () => {
-    rgbBtn.classList.toggle('rainbowRGB');
+    rgbBtn.classList.add('rainbowRGB');
+    colorBtn.classList.remove('colorWhite');
+    eraserBtn.classList.remove('eraser');
 });
 eraserBtn.addEventListener('click', () => {
     paintbrushMode = 'eraser';
+    eraserBtn.classList.add('eraser');
+    rgbBtn.classList.remove('rainbowRGB');
+    colorBtn.classList.remove('colorWhite');
 });
 clearBtn.addEventListener('click', () => {
     clearGrid(container);
+    rgbBtn.classList.remove('rainbowRGB');
+    colorBtn.classList.remove('colorWhite');
+    eraserBtn.classList.remove('eraser');
 });
-gridBtn.addEventListener('click', buildGrid);
+
+gridSlider.addEventListener('input', (e) => {
+    gridSize = e.target.value;
+    buildGrid();
+});
+// gridSize.onchange = (e) => changeSize(e.target.value)

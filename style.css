@@ -46,7 +46,6 @@ h1 {
     height: 600px;
 }
 
-/* CSS */
 button {
   background-color: #ffffff;
   border: 1px solid transparent;
@@ -62,7 +61,6 @@ button {
   text-align: center;
   text-decoration: none #6B7280 solid;
   text-decoration-thickness: auto;
-  transition-duration: .2s;
   transition-property: background-color,border-color,color,fill,stroke;
   transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
   user-select: none;
@@ -94,6 +92,17 @@ button {
     -z-animation: rainbow 18s ease infinite;
     -o-animation: rainbow 18s ease infinite;
     animation: rainbow 18s ease infinite;
+}
+
+.colorWhite {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.eraser {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
 }
 
 @-webkit-keyframes rainbow {
