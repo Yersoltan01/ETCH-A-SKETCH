@@ -26,4 +26,10 @@ function clearGrid(container)
     }
 }
 
+container.addEventListener('mouseover', function(e) {
+    let target = e.target.closest('.cell');
+    if (!target) return;
+    target.style.backgroundColor = 'black';
+});
+
 gridBtn.addEventListener('click', buildGrid);
